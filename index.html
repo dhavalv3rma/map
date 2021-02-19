@@ -246,7 +246,11 @@
 
                 marker.addListener("click", () => {
                     //$(".gm-ui-hover-effect").
-                    infowindow.open(map, marker);
+                    
+                    infowindow.open(map, marker);  
+                    setTimeout(() => {
+                        infowindow.close(map, marker);  
+                        }, 1500);
                 });
             }
 
