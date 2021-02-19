@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Custom Map</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxSRyJXDMxl5CYpIr85Eii-Vxk-q8rijw&callback=initMap&libraries=&v=weekly" defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <style type="text/css">
+        #map {
+            height: 100%;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box
+        }
+
+        @font-face {
+            font-family: GTWalsheimPro;
+            src: url(/fonts/GTWalsheimPro.woff2);
+        }
+
+        @font-face {
+            font-family: GTWalsheimPro-Bold;
+            src: url(/fonts/GTWalsheimPro-Bold.woff2);
+        }
+
+        body {
+            font-family: "GTWalsheimPro", sans-serif;
+        }
+
+        .countries {
+            border-radius: 10px;
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            background: #000000;
+        }
+
+        h4 {
+            font-size: 21px;
+            color: #8DC742;
+            margin: 10px 10px;
+        }
+
+        h4 span {
+            font-family: GTWalsheimPro-Bold;
+            font-weight: 900;
+            margin-left: 8px;
+            color: #ffffff;
+        }
+
+        .accordion {
+            cursor: pointer;
+            padding: 5px 10px 5px 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .accordion:hover,
+        .active {
+            background-color: #1f1f1f;
+
+        }
+
+        .panel {
+            font-size: 18px;
+            text-align: left;
+            padding: 0 20px;
+            background-color: #000000;
+            color: #8DC742;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            border-left: 8px solid #8DC742;
+        }
+
+
+
+
+        /*infoWindow-styling*/
+        .gm-style-iw.gm-style-iw-c {
+            border: solid 1px #ffffff;
+            background-color: #000000 !important;
+            padding: 5px 5px !important;
+            max-height: 120px;
+        }
+
+        .gm-style-iw-d {
+            overflow: auto !important;
+            color: #ffffff !important;
+            background: #000000 !important;
+        }
+
+        .gm-ui-hover-effect {
+            color: #ffffff;
+        }
+
+        .name {
+            font-size: 18px;
+            font-weight: normal;
+            padding: 4px 12px;
+            background-color: #000000;
+            color: #8DC742;
+        }
+
+        .role {
+            font-size: 12px;
+            padding: 6px 12px;
+            background-color: #000000;
+            text-align: center;
+        }
+
+        .gm-ui-hover-effect {
+            color: #ffffff;
+            fill:red
+        }
+    </style>
+    <script>
+        $(function() {
+            $(".accordion").accordion();
+        });
+        let map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: new google.maps.LatLng(-32.1445111, 115.7852891),
+                zoom: 4,
+            });
+
+            const icons = {
+                office: {
+                    icon: "office.svg",
+                },
+
+                remote: {
+                    icon: "dilate.svg",
+                },
+            };
+
+            const features = [{
+                    name: "Dilate Digital",
+                    lat: -32.1445111,
+                    long: 115.7852891,
+                    role: "Perth Office",
+                    type: "office",
+                },
+                {
+                    name: "Dhaval Verma",
+                    lat: 28.664852,
+                    long: 77.283964,
+                    role: "Web Developer",
+                    type: "remote",
+                },
+                {
+                    name: "Jacky Lou",
+                    lat: 10.3243115,
+                    long: 123.8770378,
+                    role: "SEO Specialist",
+                    type: "remote",
+                },
+                {
+                    name: "Suruchi Siyal",
+                    lat: 23.0003876,
+                    long: 72.5055815,
+                    role: "SEO Specialist",
+                    type: "remote",
+                },
+                {
+                    name: "Tanya Dharmapala",
+                    lat: -32.1437057,
+                    long: 115.8663921,
+                    role: "Account Manager",
+                    type: "remote",
+                },
+                {
+                    name: "Lakshmi Narayan Nukala",
+                    lat: 17.4271067,
+                    long: 78.323946,
+                    role: "SEO Specialist",
+                    type: "remote",
+                },
+                {
+                    name: "Jaztin Jaurigue",
+                    lat: 14.227794435849866,
+                    long: 121.00187463724178,
+                    role: "Designer",
+                    type: "remote",
+                },
+                {
+                    name: "Jestoni Albert Tilbe",
+                    lat: 14.4725795,
+                    long: 121.0201529,
+                    role: "SEO Specialist",
+                    type: "remote",
+                },
+                {
+                    name: "Mahesh Vankadara",
+                    lat: 14.749186,
+                    long: 78.553162,
+                    role: "SEO Specialist",
+                    type: "remote",
+                },
+                {
+                    name: "Mahesh Vankadara",
+                    lat: 14.749186,
+                    long: 78.553162,
+                    role: "SEO Specialist",
+                    type: "remote",
+                },
+            ];
+
+
+            // Create markers.
+            for (let i = 0; i < features.length; i++) {
+
+                var area = new google.maps.LatLng(features[i].lat, features[i].long);
+
+                const marker = new google.maps.Marker({
+                    position: area,
+                    title: features[i].name,
+                    title: features[i].name,
+                    icon: icons[features[i].type].icon,
+                    animation: google.maps.Animation.DROP,
+                    map: map,
+                });
+
+                const infowindow = new google.maps.InfoWindow({
+                    content: "<p class='name'>" + features[i].name + "</p>" + "<p class='role'>" + features[i].role + "</p>",
+                });
+
+                marker.addListener("click", () => {
+                    $(".gm-ui-hover-effect").
+                    infowindow.open(map, marker);
+                });
+            }
+
+
+
+
+            $(document).ready(function() {
+                //                var panels = $('.countries > .panel').hide();
+                //
+                //                $(".accordion").click(function() {
+                //                    panels.slideUp();
+                //                    $(this).next().slideDown();
+                //                    return false;
+                //                });
+                var acc = $(".accordion");
+
+                for (var i = 0; i < acc.length; i++) {
+                    $(acc[i]).click(function() {
+                        $(this).toggleClass("active");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.maxHeight) {
+                            panel.style.maxHeight = null;
+                        } else {
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <div class="countries">
+        <div class="accordion">
+            <h4>Australia : <span>1</span></h4>
+        </div>
+        <div class="panel">
+            <p>Tanya Dharmapala</p>
+        </div>
+
+        <div class="accordion">
+            <h4>India : <span>4</span></h4>
+        </div>
+        <div class="panel">
+            <p>Dhaval Verma</p>
+            <p>Lakshmi Narayan Nukala</p>
+            <p>Mahesh Vankadara</p>
+            <p>Suruchi Siyal</p>
+        </div>
+
+        <div class="accordion">
+            <h4>Philippines : <span>3</span></h4>
+        </div>
+        <div class="panel">
+            <p>Jacky Lou</p>
+            <p>Jaztin Jaurigue</p>
+            <p>Jestoni Albert Tilbe</p>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+
+</body></html>
