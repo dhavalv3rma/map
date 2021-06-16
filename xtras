@@ -1,0 +1,291 @@
+<body>
+    <div id="map"></div>
+
+    <div class="countries">
+        <div class="accordion au">
+            <h4>Australia</h4> :<span class="count"></span>
+        </div>
+        <div class="panel">
+        </div>
+
+        <div class="accordion in">
+            <h4>India</h4> : <span class="count"></span>
+        </div>
+        <div class="panel">
+        </div>
+        <div class="accordion pk">
+            <h4>Pakistan</h4> : <span class="count"></span>
+        </div>
+        <div class="panel">
+        </div>
+
+        <div class="accordion ph">
+            <h4>Philippines</h4> : <span class="count"></span>
+        </div>
+        <div class="panel">
+        </div>
+
+    </div>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxvT7FZhLiKI4Niyl4bIal-tbaA0F4Wf8&callback=initMap&libraries=&v=weekly"
+        defer></script>
+    <script src="script.js"></script>
+</body>
+
+
+
+
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: new google.maps.LatLng(-32.1445111, 115.7852891),
+    zoom: 3,
+  });
+
+  const icons = {
+    office: {
+      icon: "office.svg",
+    },
+
+    remote: {
+      icon: "dilate.svg",
+    },
+  };
+
+  const features = [
+    {
+      name: "Dilate Digital",
+      lat: -32.1445111,
+      lng: 115.7852891,
+      role: "Perth Office",
+      type: "office",
+    },
+    {
+      name: "Dhaval Verma",
+      lat: 28.664852,
+      lng: 77.283964,
+      role: "Web Developer",
+      type: "remote",
+      country: "India",
+    },
+    {
+      name: "Jacky Lou",
+      lat: 10.3243115,
+      lng: 123.8770378,
+      role: "SEO Specialist",
+      type: "remote",
+      country: "Philippines",
+    },
+    {
+      name: "Suruchi Siyal",
+      lat: 23.0003876,
+      lng: 72.5055815,
+      role: "SEO Specialist",
+      type: "remote",
+      country: "India",
+    },
+    {
+      name: "Tanya Dharmapala",
+      lat: -32.1437057,
+      lng: 115.8663921,
+      role: "Account Manager",
+      type: "remote",
+      country: "Australia",
+    },
+    {
+      name: "Lakshmi Narayan Nukala",
+      lat: 17.4271067,
+      lng: 78.323946,
+      role: "SEO Specialist",
+      type: "remote",
+      country: "India",
+    },
+    {
+      name: "Jaztin Jaurigue",
+      lat: 14.227794435849866,
+      lng: 121.00187463724178,
+      role: "Designer",
+      type: "remote",
+      country: "Philippines",
+    },
+    {
+      name: "Jestoni Albert Tilbe",
+      lat: 14.4725795,
+      lng: 121.0201529,
+      role: "SEO Specialist",
+      type: "remote",
+      country: "Philippines",
+    },
+    {
+      name: "Mahesh Vankadara",
+      lat: 14.749186,
+      lng: 78.553162,
+      role: "PPC Specialist",
+      type: "remote",
+      country: "India",
+    },
+  ];
+
+  var markerVal = [];
+
+  const markers = $.map(features, function (n) {
+    // Create Markers
+    const marker = new google.maps.Marker({
+      position: { lat: n.lat, lng: n.lng },
+      title: n.name,
+      icon: icons[n.type].icon,
+      animation: google.maps.Animation.DROP,
+      map: map,
+    });
+
+    // for Clustering
+    markerVal.push(marker);
+
+    // Create/interact InfoWindow
+    const infowindow = new google.maps.InfoWindow({
+      content:
+        "<p class='name'>" +
+        n.name +
+        "</p>" +
+        "<p class='role'>" +
+        n.role +
+        "</p>",
+    });
+    marker.addListener("click", () => {
+      infowindow.open(map, marker);
+      setTimeout(() => {
+        infowindow.close(map, marker);
+      }, 1000);
+    });
+
+    // Displaying accordion info
+    
+    $( ".accordion h4").each(function() {
+      var countryVal = $( this ).html();
+    console.log(countryVal)
+      // if (countryVal == n.country) {
+      //   $(".panel").append("<p>" + n.name + "</p>");
+      // }else{
+      //   $(".panel").append("<p>Hello</p>");
+      // }
+    });
+  });
+
+  // $(".accordion h4").each(function () {
+  //   var countryVal = $(this).html();
+  //   console.log(countryVal);
+  // });
+
+  console.log(markerVal);
+  console.log(markerVal[2].country);
+
+  // Path for cluster icons to be appended (1.png, 2.png, etc.)
+
+  // Enable marker clustering for this map and these markers
+  // const imagePath = "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m";
+  // const markerClusterer = new MarkerClusterer(map, markerVal, {imagePath: imagePath});
+}
+
+// Accordion
+$(document).ready(function () {
+  var panels = $(".countries > .panel").hide();
+  $(".accordion").click(function () {
+    panels.slideUp();
+    $(this).next().slideDown();
+    return false;
+  });
+});
+
+
+
+
+
+map = new google.maps.Map(document.getElementById("map"), {
+    center: new google.maps.LatLng(-32.1445111, 115.7852891),
+    zoom: 3,
+     styles: [
+       { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+       { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+       { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+       {
+         featureType: "administrative.locality",
+         elementType: "labels.text.fill",
+         stylers: [{ color: "#d59563" }],
+       },
+       {
+         featureType: "poi",
+         elementType: "labels.text.fill",
+         stylers: [{ color: "#d59563" }],
+       },
+       {
+         featureType: "poi.park",
+         elementType: "geometry",
+         stylers: [{ color: "#263c3f" }],
+       },
+       {
+         featureType: "poi.park",
+         elementType: "labels.text.fill",
+         stylers: [{ color: "#6b9a76" }],
+       },
+       {
+         featureType: "road",
+         elementType: "geometry",
+         stylers: [{ color: "#38414e" }],
+       },
+       {
+         featureType: "road",
+         elementType: "geometry.stroke",
+         stylers: [{ color: "#212a37" }],
+       },
+       {
+         featureType: "road",
+         elementType: "labels.text.fill",
+         stylers: [{ color: "#9ca5b3" }],
+       },
+       {
+         featureType: "road.highway",
+         elementType: "geometry",
+         stylers: [{ color: "#746855" }],
+       },
+       {
+         featureType: "road.highway",
+         elementType: "geometry.stroke",
+         stylers: [{ color: "#1f2835" }],
+       },
+       {
+         featureType: "road.highway",
+         elementType: "labels.text.fill",
+         stylers: [{ color: "#f3d19c" }],
+       },
+       {
+         featureType: "transit",
+         elementType: "geometry",
+         stylers: [{ color: "#2f3948" }],
+       },
+       {
+         featureType: "transit.station",
+         elementType: "labels.text.fill",
+         stylers: [{ color: "#d59563" }],
+       },
+       {
+         featureType: "water",
+         elementType: "geometry",
+         stylers: [{ color: "#17263c" }],
+       },
+       {
+         featureType: "water",
+         elementType: "labels.text.fill",
+         stylers: [{ color: "#515c6d" }],
+       },
+       {
+         featureType: "water",
+         elementType: "labels.text.stroke",
+         stylers: [{ color: "#17263c" }],
+       },
+     ],
+  });
+
+
+
+
+

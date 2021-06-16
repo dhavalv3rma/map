@@ -1,0 +1,215 @@
+#map {
+  height: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: GTWalsheimPro;
+  src: url(fonts/GTWalsheimPro.woff2);
+}
+
+@font-face {
+  font-family: GTWalsheimPro-Bold;
+  src: url(fonts/GTWalsheimPro-Bold.woff2);
+}
+
+body {
+  font-family: "GTWalsheimPro", sans-serif;
+}
+.gm-style div div {
+  color: #8dc742 !important;
+  font-size: 13px !important;
+}
+
+.countries {
+  border-radius: 10px;
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  background: #000000;
+  overflow: hidden;
+  transition: 0.4s;
+  min-width: 216px;
+}
+
+.accordion {
+  padding: 10px 16px 10px 0;
+  color: #8dc742;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+.accordion h4 {
+  display: inline-block;
+  font-size: 21px;
+  margin: 10px 10px;
+  font-size: 18px;
+  transition: 0.4s;
+}
+
+.accordion .count {
+  font-family: GTWalsheimPro-Bold;
+  font-size: 18px;
+  /* font-weight: 900; */
+  margin-left: 2px;
+  color: #ffffff;
+}
+
+.accordion:hover,
+.active {
+  background-color: #1f1f1f;
+}
+
+.panel {
+  display: none;
+  background-color: #000000;
+  border-left: 8px solid #8dc742;
+  color: #8dc742;
+  font-size: 18px;
+  text-align: left;
+  padding: 12px 20px;
+  overflow: hidden;
+}
+
+/*infoWindow-styling*/
+.poi-info-window div, .poi-info-window a{
+  background-color: #000000 !important;
+}
+.gm-style-iw.gm-style-iw-c {
+  border: solid 1px #ffffff;
+  background-color: #000000 !important;
+  padding: 5px 5px !important;
+  max-height: 120px;
+}
+
+.gm-style-iw-d {
+  overflow: auto !important;
+  color: #ffffff !important;
+  background: #000000 !important;
+}
+
+.gm-ui-hover-effect {
+  color: #ffffff;
+}
+
+.name {
+  font-size: 18px !important;
+  font-weight: normal;
+  padding: 4px 12px;
+  background-color: #000000;
+  color: #8dc742;
+}
+
+.role {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  padding: 6px 12px !important;
+  background-color: #000000;
+  text-align: center;
+}
+
+.gm-ui-hover-effect {
+  color: #ffffff;
+  fill: rgb(0, 0, 0);
+}
+.gmnoprint .gm-style-cc span {
+  color: #000000 !important;
+}
+
+
+
+
+/* Search Input */
+ /* Styling for Autocomplete search bar */
+ #pac-card {
+  background-color: #fff;
+  border-radius: 2px 0 0 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  font-family: Roboto;
+  margin: 10px 10px 0 0;
+  -moz-box-sizing: border-box;
+  outline: none;
+}
+
+#pac-container {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#title {
+  color: #fff;
+  background-color: #acbcc9;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 6px 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Styling for an info pane that slides out from the left. 
+ * Hidden by default. */
+#panel {
+  height: 100%;
+  width: null;
+  background-color: white;
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: all .2s ease-out;
+}
+
+.open {
+  width: 250px;
+}
+
+.place {
+  font-family: 'open sans', arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-block-end: 0px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.distanceText {
+  color: silver;
+  font-family: 'open sans', arial, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  margin-block-start: 0.25em;
+  padding-left: 18px;
+  padding-right: 18px;
+}
