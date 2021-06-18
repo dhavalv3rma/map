@@ -24,24 +24,21 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
 
     <script>
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        // var firebaseConfig = {
-        //     apiKey: "AIzaSyBY7di1IRJOypSd0P2CpIb1PQYZnw-iUhA",
-        //     authDomain: "dilate-maps.firebaseapp.com",
-        //     databaseURL: "https://dilate-maps-default-rtdb.firebaseio.com",
-        //     projectId: "dilate-maps",
-        //     storageBucket: "dilate-maps.appspot.com",
-        //     messagingSenderId: "460081151258",
-        //     appId: "1:460081151258:web:20effde8e1f168fca0c0a3",
-        //     measurementId: "G-JMY3H48LGR"
-        // };
-        // firebase.initializeApp(firebaseConfig);
-       
+        // Init Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyBY7di1IRJOypSd0P2CpIb1PQYZnw-iUhA",
+            authDomain: "dilate-maps.firebaseapp.com",
+            databaseURL: "https://dilate-maps-default-rtdb.firebaseio.com",
+            projectId: "dilate-maps",
+            storageBucket: "dilate-maps.appspot.com",
+            messagingSenderId: "460081151258",
+            appId: "1:460081151258:web:20effde8e1f168fca0c0a3",
+            measurementId: "G-JMY3H48LGR"
+        };
+        firebase.initializeApp(firebaseConfig);
     </script>
 
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxvT7FZhLiKI4Niyl4bIal-tbaA0F4Wf8&callback=initMap&libraries=&v=weekly"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxvT7FZhLiKI4Niyl4bIal-tbaA0F4Wf8&callback=initMap&libraries=&v=weekly"
         defer></script>
     <script src="script.js"></script>
 
