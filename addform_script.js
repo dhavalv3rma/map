@@ -1,14 +1,19 @@
 $(window).on("load", function () {
   $(".loader").hide("slow");
-  passwordProtect();
+//   passwordProtect();
   $("form").removeClass("hide");
 });
 
-function passwordProtect() {
-  var pass = window.prompt("Please Enter Password - ");
-  const path = require("path");
-  console.log(`The file name is ${path.basename(__filename)}`);
-}
+// function passwordProtect() {
+//   var password = "mpass321";
+//   var inputPass = window.prompt("Please Enter Password - ");
+//   if (inputPass === password){
+//     $("form").removeClass("hide");
+//   }
+//   else{
+//       alert("Wrong password!");
+//   }
+// }
 
 // Init Firebase
 var firebaseConfig = {

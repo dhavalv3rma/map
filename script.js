@@ -1,20 +1,30 @@
+
+// @########################################################### loading screen
+$(window).on("load", function () {
+  $(".loader-container").fadeOut("slow");
+  $("#map").removeClass("hide");
+});
+
 // ############################################################ Handling Data-set
 
 // Initialize Firebase Writing
 var database = firebase.database();
-// var usersRef = firebase.database().ref();
+var usersRef = database.ref();
 // usersRef.set({
 // features,
 // icons
 // });
 
-var ref = firebase.database().ref();
+var ref = database.ref();
 
 ref.on(
   "value",
   function (snapshot) {
     var user = snapshot.val();
-    var features = user.features;
+    var features = user.features.filter(function (el) {
+      return el != null;
+    });
+    
     var icons = user.icons;
 
     // Map Initialisation
@@ -45,6 +55,7 @@ ref.on(
             feature.role +
             "</p>",
         });
+
         marker.addListener("click", () => {
           infowindow.open(map, marker);
           setTimeout(() => {
@@ -62,7 +73,6 @@ ref.on(
         textColor: "#ffffff",
       });
     }
-    
 
     // Fetching and seeding countries in
     var countries = [];
@@ -93,16 +103,6 @@ ref.on(
       }
     }
     allCountries(countries);
-
-    // Accordion
-    $(document).ready(function () {
-      var panels = $(".countries > .panel").hide();
-      $(".accordion").click(function () {
-        panels.slideUp();
-        $(this).next().slideDown();
-        return false;
-      });
-    });
 
     var x = 0,
       y = 0,
@@ -140,6 +140,17 @@ ref.on(
           .append("<p>" + features[i].name + "</p>");
       }
     }
+
+    // Accordion Init
+    $(document).ready(function () {
+      var panels = $(".countries > .panel").hide();
+      $(".accordion").click(function () {
+        panels.slideUp();
+        $(this).next().slideDown();
+        return false;
+      });
+    });
+
     initMap();
   },
 
@@ -147,40 +158,3 @@ ref.on(
     console.log("Error: " + error.code);
   }
 );
-
-
-
-// function update() {
-//   var johnRef = firebase.database().ref("features/0");
-//   johnRef.update({
-//     name: "ONE",
-//   });
-// }
-
-// function pushUser(
-//   user_name,
-//   user_lat,
-//   user_lng,
-//   user_role,
-//   user_type,
-//   user_country
-// ) {
-//   ref.on("value", function (snapshot) {
-//     var user = snapshot.val();
-//     var features = user.features;
-//     var icons = user.icons;
-
-//     var totalUser = features.length;
-//     var user = firebase.database().ref("features/" + ++totalUser + "");
-//     user.set({
-//       name: user_name,
-//       lat: user_lat,
-//       lng: user_lng,
-//       role: user_role,
-//       type: user_type,
-//       country: user_country,
-//     });
-//   });
-// }
-
-// pushUser("aj", 19.13702, 72.87148, "developer", "remote", "india")

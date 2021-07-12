@@ -2,28 +2,42 @@
 <html>
 
 <head>
-    <title>Dilate Map</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilate Team Map</title>
     <link rel="icon" href="office.svg" type="image/gif">
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script
         src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-
 </head>
 
 <body>
-    <div id="map"></div>
+    <div class="loader-container" style="height:100vh !important;">
+        <div class="loader"></div>
+    </div>
+    
+    <div class="header-logo">
+        <img src="/dilatelogo.svg" alt="Dilate Logo"><span> Team Map</span>
+    </div>
+    
+    <div id="map" class="hide">
+    </div>
 
     <div class="countries">
+    </div>
+
+    <div class="toggle">
     </div>
 
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
-
     <script>
+
         // Init Firebase
         var firebaseConfig = {
             apiKey: "AIzaSyBY7di1IRJOypSd0P2CpIb1PQYZnw-iUhA",
@@ -35,10 +49,12 @@
             appId: "1:460081151258:web:20effde8e1f168fca0c0a3",
             measurementId: "G-JMY3H48LGR"
         };
+
         firebase.initializeApp(firebaseConfig);
     </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxvT7FZhLiKI4Niyl4bIal-tbaA0F4Wf8&callback=initMap&libraries=&v=weekly"
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxvT7FZhLiKI4Niyl4bIal-tbaA0F4Wf8&callback=initMap&libraries=&v=weekly"
         defer></script>
     <script src="script.js"></script>
 

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+    <head>
+                <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="description" content="Find the GPS Coordinates of any address or vice versa. Get the latitude and longitude of any GPS location on Earth with our interactive Maps.">
+        <title>GPS coordinates, latitude and longitude with interactive Maps
+</title>
+        <link rel="canonical" href="https://www.gps-coordinates.net/" />          <meta property="og:url" content="https://www.gps-coordinates.net/">
+<meta property="og:image" content="https://www.gps-coordinates.net/images/gps-og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GPS coordinates, latitude and longitude with interactive Maps">
+<meta property="og:description" content="Find the GPS Coordinates of any address or vice versa. Get the latitude and longitude of any GPS location on Earth with our interactive Maps.">
+		<link rel="stylesheet" href="/css/maps.css" type="text/css" />
+
+		            <link rel="stylesheet" href="/css/bootstrapv2.css" type="text/css" />
+            <link rel="stylesheet" href="/css/gps-coordinatesv33.css" type="text/css" />
+                    		<link rel="shortcut icon" href="/favicon.ico?v1">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v1">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#007bff">
+		<meta name="msapplication-TileColor" content="#007bff">
+		<meta name="theme-color" content="#ffffff">
+        <script>
+            if ( window.self !== window.top ) {
+                window.top.location.href=window.location.href;
+            }
+        </script>
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="/js/html5shiv.js"></script>
+        <script src="/js/respond.min.js"></script>
+        
+        <![endif]-->
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-27565784-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-27565784-1', { 'anonymize_ip': true });
+		</script>
+        
+        
+            </head>
+    <body onload="initialize();">
+        
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+                
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar navheader">
+				<img alt="GPS Coordinates - Latitude and Longitude" src="/images/gps-coordinates.jpg">                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <div id="top_account" class="pull-right">
+                    <p>
+                                            <a href="/login">login</a> | <a href="/register/">register</a>
+                                        </p>
+                </div>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="/">Coordinates</a></li>
+			  <li><a href="/my-location" title="My location">My Location</a></li>
+              <li><a href="/driving-directions">Google Maps Directions</a></li>
+              <li><a href="/gps-coordinates-converter" title="GPS Coordinates Converter">Converter</a></li>
+              <li><a href="/satellite" title="Satellite">Satellite</a></li>
+			  <li><a href="/street-view" title="Street View">Street View</a></li>
+			  <li><a href="/api" title="Latitude & Longitude API">API</a></li>
+                                                        <li><a href="/maps" title="Country and State Maps">Maps</a></li>
+             			 <li><a href="/distance" title="Distance calculator">Distance</a></li>
+			 <li><a href="/radius" title="Radius calculator">Radius</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+            
+      <!-- Begin page content -->
+            <div class="container">
+        	<div class="page-header">
+			<h1>GPS Coordinates</h1>
+			<h2>Coordinates of an address</h2>
+			<p>
+		    	To find the <strong>Earth coordinates</strong> of an address or a place, simply use our <strong>latitude and longitude finder</strong>. Fill the address field and click on "Get GPS Coordinates" to display its <strong>latitude and longitude</strong>. The coordinates are displayed in the left column or directly on the interactive map. You can also create a free account to access Google Maps coordinates.
+			</p>
+			<div id="gpstop">
+		    	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		    	<!-- gps-smartlink-1 -->
+		    	<ins class="adsbygoogle"
+			 	style="display:block"
+			 	data-ad-client="ca-pub-9379737428903517"
+			 	data-ad-slot="3498210987"
+			 	data-ad-format="link"></ins>
+		    	<script>
+		    	(adsbygoogle = window.adsbygoogle || []).push({});
+		    	</script>
+			</div>
+			<h2>Find an address from its latitude and longitude</h2>
+			<p>
+		    	Latitude and longitude to address: fill the decimal GPS coordinates and click on the corresponding "Get Address" button.<br/>
+		    	Address from sexagesimal coordinates: fill the sexagesimal GPS coordinates and click on the corresponding "Get Address" button.
+			</p>
+			<h2>Map coordinates of any GPS location</h2>
+		    	<p>Click directly on the map to get the address and the GPS coordinates of any <strong>GPS location</strong> on Earth. The <strong>map coordinates</strong> are displayed on the left column and on the map.</p>
+	</div>
+        
+        <div class="row">
+            <div id="ad-content" class="col-md-12 pub">
+   		    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   		    <!-- gps-coordinates-smart-top -->
+   		    <ins class="adsbygoogle"
+   			 style="display:block"
+   			 data-ad-client="ca-pub-9379737428903517"
+   			 data-ad-slot="1546070180"
+   			 data-ad-format="auto"></ins>
+   		    <script>
+   		    (adsbygoogle = window.adsbygoogle || []).push({});
+   		    </script>
+			   
+			               </div>	
+        </div>
+             
+        
+        <div class="row">
+            <div class="col-md-4">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="col-md-12 addressWrapper">
+							<p class="h4">Address</p>
+                            <input id="address" class="form-control" type="text" value="New York">
+						    <div id="resultsWrapper">
+								<div id="results" class="mapSearchResults"></div>
+							</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                          <button type="button" class="btn btn-primary" onclick="codeAddress()">Get GPS Coordinates</button>
+                        </div>
+                    </div>
+                </form>
+                
+                <form class="form-horizontal" role="form">
+                    <h4>DD (decimal degrees)*</h4>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="latitude">Latitude</label>
+                        <div class="col-md-9">
+                            <input id="latitude" class="form-control" type="text">
+                        </div>
+                    </div>
+                        
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="longitude">Longitude</label>
+                        <div class="col-md-9">
+                            <input id="longitude" class="form-control" type="text">
+                        </div>
+                    </div>
+ 
+                    <div class="form-group">
+                        <div class="col-md-4">
+                          <button type="button" class="btn btn-primary" onclick="codeLatLng(1)">Get Address</button>
+                        </div>
+                    </div>
+		    
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="longitude">Lat,Long</label>
+                        <div class="col-md-9">
+                            <input id="latlong" class="form-control selectall" type="text">
+                        </div>
+                    </div>
+                        
+                </form>
+            
+                <form class="form-horizontal" role="form">
+                    <h4>DMS (degrees, minutes, seconds)*</h4>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="latitude">Latitude</label>
+                        <div class="col-md-9">
+                            <label class="radio-inline">
+                                <input type="radio" name="latnordsud" value="nord" id="nord" checked/>
+                                N
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="latnordsud" value="sud" id="sud" />    
+                                S
+                            </label>
+                        
+                            <input class="form-control sexagesimal" id="latitude_degres" type="text">
+                            <label for="latitude_degres">&deg;</label>
+                            <input class="form-control sexagesimal" id="latitude_minutes" type="text">
+                            <label for="latitude_minutes">'</label>
+                            <input class="form-control sexagesimalsec" id="latitude_secondes" type="text">
+                            <label for="latitude_secondes">''</label>
+                        </div>
+                    </div>
+                
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="longitude">Longitude</label>
+                        <div class="col-md-9">
+                            <label class="radio-inline">
+                                <input type="radio" name="lngestouest" value="est" id="est" checked/>
+                                E
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="lngestouest" value="ouest" id="ouest" />    
+                                W
+                            </label>
+    
+                            <input class="form-control sexagesimal" id="longitude_degres" type="text">
+                            <label for="longitude_degres">&deg;</label>
+    
+
+                            <input class="form-control sexagesimal" id="longitude_minutes" type="text">
+                            <label for="longitude_minutes">'</label>
+                            <input class="form-control sexagesimalsec" id="longitude_secondes" type="text">
+                            <label for="longitude_secondes">''</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-4">
+                          <button type="button" class="btn btn-primary" onclick="dmsversdd()">Get Address</button>
+                        </div>
+                    </div>
+                </form>
+		                <span class="help-block"><small>* World Geodetic System 84 (WGS 84)</small></span>
+		            </div>
+            <div class="col-md-8">
+                <div id="map_canvas"><a id="open_full_screen" class="btn full_screen" onclick="openFullscreen();"><span aria-hidden="true" class="glyphicon glyphicon-fullscreen"></span></a>
+			    <a id="close_full_screen" class="btn full_screen" onclick="closeFullscreen();"><span aria-hidden="true" class="glyphicon glyphicon-resize-small"></span></a><p id="statusinfo" class="bg-orange"><img src="/images/ripple.gif" alt="Loader"/>Allow or deny location access to proceed</p></div>
+		            </div>
+        </div>
+		
+        <div class="row">
+            <div class="col-md-12">
+			    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			    <!-- gps-coordinates-smart-bottom -->
+			    <ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-9379737428903517"
+				 data-ad-slot="4499536583"
+				 data-ad-format="auto"></ins>
+			    <script>
+			    (adsbygoogle = window.adsbygoogle || []).push({});
+			    </script>
+			</div>
+		</div>
+        
+        
+
+        <div class="row">
+            <div class="col-md-12">
+				<h2>What is my location?</h2>
+		  <p>We opted to center the map on your current location when possible, using the html5 geolocation feature to find out the latitude and longitude of your location. When available, you can also get your <strong>location address</strong>.<br>
+		  Where am I? Your location coordinates are provided by your browser, and we can't access them without your consent. We do not keep any record of the location of our users, so feel free to allow the geolocation feature if you find it convenient. Visit this page to track <a href="/my-location" title="My Location">my location</a>.<br>
+		  If you don't share your location, the map will just be centered on a default GPS location.		  </p>
+		<h3>Google Maps Driving Directions</h3>
+		<p>Get <a href="/google-maps-driving-directions">Driving Directions</a> with Google Maps for any mode of transportation: driving, bicycling, transit or walking.</p>
+  		<h3>Satellite view</h3>
+  		<p>Simply click on the "Satellite" button on the map to switch to the Map Satellite view of the chosen GPS location.</p>
+				<h3>Name your GPS Coordinates!</h3>
+                <p>You can name any place you bookmarked and make them available through our <a href="/api">API</a>.</p>
+		<p>
+                    <a href="/register/">Create a free account</a> to bookmark your favorite places. Once logged in, just click on the star inside the infowindow on the map to add the point to your bookmark list (you can find it under the map on any page).<br>
+		    This is especially useful if you look for specific places on a device like your desktop, in order to use them later on with your mobile or your tablet. Just login and your points of interest will be available on all your devices (and on all the pages). 
+                </p>
+				<h3>Customize your Google Maps</h3>
+		<p>You can create links to custom maps to share with your friends or customers. <a href="/custom-map">Try it now</a>.		<p>You can also visit our French, Spanish, German, Dutch partner sites: <a href="http://www.coordonnees-gps.fr" title="coordonnées GPS">www.coordonnees-gps.fr</a> | <a href="http://www.coordenadas-gps.com" title="Coordenadas GPS">www.coordenadas-gps.com</a> | <a href="http://www.gpskoordinaten.de" title="GPS-Koordinaten">www.gpskoordinaten.de</a> | <a href="http://www.gps-coordinaten.nl" title="Google Maps Coordinaten">www.gps-coordinaten.nl</a></p>
+	    </div>
+	</div>
+    </div>
+        
+            </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted credit"><small>Copyright &copy; 2021 www.gps-coordinates.net</small> | <a href="/custom-map" title="Custom Map Link" class="">Custom Map</a> | <a href="/geolocation" title="How to Enable Geolocation" class="">Geolocation</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a></p>
+      </div>
+    </div>
+	
+        <script>var loaderUrl = "/images/loader.gif"; var appeared = 0;</script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="/js/appear.js"></script>
+            
+        
+    <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
+<script src="/js/f5557ab.js"></script>
+<script>
+    
+  function bookmark() {
+            return "";
+      }
+  
+  function bookUp(address, latitude, longitude) {
+        return false;
+  }
+  
+  function simulateClick(latitude, longitude) {
+    var mev = {
+        stop: null,
+        latLng: new google.maps.LatLng(latitude, longitude)
+    }
+    google.maps.event.trigger(map, 'click', mev);
+  }
+
+</script>
+    
+    <script src="/js/bootstrapv2.min.js"></script>
+	
+    <script>
+        $(document).ready(function() {
+          $("form").keypress(function(e) {
+            //Enter key
+            if (e.which == 13) {
+              return false;
+            }
+          });
+            $('.selectall').focus(function() {
+                $(this).select();
+            });                        
+        });
+    </script>
+    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+    <script>
+	window.cookieconsent_options = {"message":"We use cookies to understand how you use our site and to improve your experience. This includes personalizing content and advertising. By continuing to use our site, you accept our use of cookies, revised Privacy Policy and Terms of Use.","dismiss":"OK!","learnMore":"More info","link":"https://www.gps-coordinates.net/privacy","theme":"/cookieconsent/light-bottom.css"};
+    </script>
+    <script src="/cookieconsent/cookieconsent.js"></script>
+    <!-- End Cookie Consent plugin -->
+        
+    <script>
+    $(document).ready(function() {
+        
+        $('#wrap').on('click', '.favorite', function(e) {
+            $('#dp_pointbundle_point_submit').trigger('click');
+            $(this).replaceWith('<button type="button" class="bookmarked btn btn-primary"><span class="glyphicon glyphicon-star"></span></button>');
+        });
+        
+        $('#form_wrap').on('submit', 'form', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: $(this).attr('method'),
+                cache: false,
+                url: $(this).attr('action'), 
+                data: $(this).serialize(),
+                dataType: "json",
+                success: function(data){
+        
+                    if (data.responseCode==200) {}
+                    else if (data.responseCode==400) alert(data.message);
+                    else alert("ok");
+                
+                    $.ajax({
+                        url: "/point/update",
+                        cache: false,
+                        success: function(data2){
+                
+                            if (data2.responseCode==200) $('#bookmarks_wrap').html(data2.updated);
+                            //else if (data2.responseCode==400) alert(data2.message);
+                            //else alert("ok");
+                            
+                            
+                            
+                            
+                            
+                        },
+                        error: function(xhr, err){
+                
+                            //alert("This is taking too long. You may have internet connectivity issues or the server is down.");
+                        }
+                    });
+                
+                },
+                error: function(xhr, err){
+        
+                    alert("Error. You may have internet connectivity issues or the server is down.");
+                }
+            });
+        
+            return false;
+        });                        
+  
+        $('#bookmarks_wrap').on('submit', '.point_delete', function(e) {
+            e.preventDefault();
+            $(this).replaceWith('<img src="/images/loader.gif" style="margin-left: 25px; margin-top: 8px;"/>');
+            $.ajax({
+                type: $(this).attr('method'),
+                cache: false,
+                url: $(this).attr('action'), 
+                data: $(this).serialize(),
+                dataType: "json",
+                success: function(data){
+        
+                    if (data.responseCode==200) {}
+                    else if (data.responseCode==400) alert(data.message);
+                    else alert("ok");
+                    
+                    
+                    $.ajax({
+                        url: "/point/update",
+                        cache: false,
+                        success: function(data2){
+                
+                            if (data2.responseCode==200) $('#bookmarks_wrap').html(data2.updated);
+                           // else if (data2.responseCode==400) alert(data2.message);
+                            //else alert("Error");
+                            
+                            
+                            
+                            
+                            
+                        },
+                        error: function(xhr, err){
+                
+                            //alert("Error");
+                        }
+                    });
+                    
+                    
+                },
+                error: function(xhr, err){
+        
+                    alert("Error. You may have internet connectivity issues or the server is down.");
+                }
+            });
+        
+            return false;
+        });                        
+    
+        $('#bookmarks_wrap').on('click', '.ok', function(e) {
+            e.preventDefault();
+            var l = Ladda.create(this);
+            l.start();
+            var stamp = new Date().getTime();
+            var newId = "naming_" + stamp;
+            $(this).attr("id", newId);
+            var namingForm = $(this).closest('form');
+            //var td = $(this).closest('td');
+            //td.overlay();
+            $.ajax({
+                type: namingForm.attr('method'),
+                cache: false,
+                url: namingForm.attr('action'), 
+                data: namingForm.serialize()+'&pointId='+namingForm.attr('data-point-id')+'&newId='+newId,
+                dataType: "json",
+                success: function(data){
+                    
+                    var clicked = $('#' + data.newId);
+                    var input = clicked.prev('input');
+                    var p = clicked.closest('form').next(".log");
+                    $('.log').html("");
+                    
+                    if (data.responseCode==200)
+                    {
+                        input.val(data.newName);
+                        p.html('<p class="alert-success">Name succesfully registered</p>');
+                    }
+                    else if (data.responseCode==400)
+                        {
+                            if (data.newId==0) alert(data.message);
+                            else p.html('<p class="alert-danger">' + data.message + '</p>');
+                        }
+                    else alert("A problem has occured - please try again");
+                },
+                error: function(xhr, err){
+                    alert("A problem has occured - please try again");
+                }
+            }).always(function() { l.stop(); l.remove(); });
+            return false;
+        });
+    });                    
+
+</script>
+
+
+    </body>
+</html>
